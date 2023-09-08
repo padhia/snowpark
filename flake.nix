@@ -19,8 +19,9 @@
         callPackage = lib.callPackageWith (nixpkgs // python.pkgs // myPkgs);
 
         myPkgs = {
+          snowflake-connector-python = callPackage "${sfconn-git}/snowflake-connector-python.nix" {};
           snowpark = callPackage ./snowpark.nix {};
-          sfconn = callPackage "${sfconn-git}/build.nix" {};
+          sfconn = callPackage "${sfconn-git}/sfconn.nix" {};
         };
 
         pyPkgs = p: with p; [
