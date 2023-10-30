@@ -1,7 +1,7 @@
 { lib
 , buildPythonPackage
 , fetchPypi
-, snowflake-connector-python 
+, snowflake-connector-python
 , setuptools
 , wheel
 , cloudpickle
@@ -10,15 +10,15 @@
 
 buildPythonPackage rec {
   pname = "snowflake-snowpark-python";
-  version = "1.8.0";
+  version = "1.9.0";
   format = "setuptools";
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-YtPTU/tIFJo8slYzEHglfPUeEi+Mi184poajZPhFxGc=";
+    hash = "sha256-elp9kBtiicMgOmYgnKwwRuVhGR/6AEjz5kJyRZUHydo=";
   };
 
-  propagatedBuildInputs = [ 
+  propagatedBuildInputs = [
     snowflake-connector-python
     setuptools
     wheel

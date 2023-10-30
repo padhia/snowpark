@@ -1,31 +1,33 @@
 { lib
-, asn1crypto
 , buildPythonPackage
 , pythonRelaxDepsHook
-, certifi
-, cffi
-, charset-normalizer
 , cython
 , fetchPypi
-, filelock
-, idna
-, keyring
-, oscrypto
-, packaging
-, platformdirs
 , pyarrow
+, pythonOlder
+, setuptools
+, wheel
+
+, asn1crypto
+, cffi
+, cryptography
+, oscrypto
+, pyopenssl
 , pycryptodomex
 , pyjwt
-, pyopenssl
-, pythonOlder
 , pytz
 , requests
-, setuptools
-, sortedcontainers
-, tomlkit
-, typing-extensions
+, packaging
+, charset-normalizer
+, idna
 , urllib3
-, wheel
+, certifi
+, typing-extensions
+, filelock
+, sortedcontainers
+, platformdirs
+, tomlkit
+, keyring
 }:
 
 buildPythonPackage rec {
@@ -48,32 +50,30 @@ buildPythonPackage rec {
   ];
 
   pythonRelaxDeps = [
-    "pyOpenSSL"
-    "charset-normalizer"
-    "cryptography"
-    "platformdirs"
+    "pyarrow"
   ];
 
   propagatedBuildInputs = [
     asn1crypto
-    certifi
     cffi
-    charset-normalizer
-    filelock
-    idna
+    cryptography
     oscrypto
-    packaging
-    platformdirs
-    pyarrow
+    pyopenssl
     pycryptodomex
     pyjwt
-    pyopenssl
     pytz
     requests
-    sortedcontainers
-    tomlkit
-    typing-extensions
+    packaging
+    charset-normalizer
+    idna
     urllib3
+    certifi
+    typing-extensions
+    filelock
+    sortedcontainers
+    platformdirs
+    tomlkit
+    # pyarrow
   ];
 
   passthru.optional-dependencies = {

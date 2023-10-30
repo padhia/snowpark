@@ -15,7 +15,7 @@
       with nixpkgs.legacyPackages.${system};
 
       let
-        python = python310;
+        python = python311;
         callPackage = lib.callPackageWith (nixpkgs // python.pkgs // myPkgs);
 
         myPkgs = {
