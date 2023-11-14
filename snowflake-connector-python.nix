@@ -11,9 +11,7 @@
 , asn1crypto
 , cffi
 , cryptography
-, oscrypto
 , pyopenssl
-, pycryptodomex
 , pyjwt
 , pytz
 , requests
@@ -27,19 +25,20 @@
 , sortedcontainers
 , platformdirs
 , tomlkit
+
 , keyring
 }:
 
 buildPythonPackage rec {
   pname = "snowflake-connector-python";
-  version = "3.3.0b1";
+  version = "3.5.0";
   format = "pyproject";
 
   disabled = pythonOlder "3.7";
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-lasUcmsc3WeKfTQGEjqJ4j0x8l2m3kMSnm4LL5i+qj0=";
+    hash = "sha256-ZU5KH2ikkVRL2PfFqwLrhTHfZ8X0MJ1SU70gQET4obM=";
   };
 
   nativeBuildInputs = [
@@ -50,16 +49,13 @@ buildPythonPackage rec {
   ];
 
   pythonRelaxDeps = [
-    "pyarrow"
   ];
 
   propagatedBuildInputs = [
     asn1crypto
     cffi
     cryptography
-    oscrypto
     pyopenssl
-    pycryptodomex
     pyjwt
     pytz
     requests
