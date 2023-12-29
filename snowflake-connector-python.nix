@@ -26,6 +26,8 @@
 , tomlkit
 
 , keyring
+, pandas
+, pyarrow
 }:
 
 buildPythonPackage rec {
@@ -72,6 +74,7 @@ buildPythonPackage rec {
 
   passthru.optional-dependencies = {
     secure-local-storage = [ keyring ];
+    pandas = [ pandas pyarrow ];
   };
 
   # Tests require encrypted secrets, see
