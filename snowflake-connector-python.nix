@@ -37,6 +37,10 @@ buildPythonPackage rec {
 
   disabled = pythonOlder "3.7";
 
+  patches = [
+    ./gcc13.patch  # https://github.com/snowflakedb/snowflake-connector-python/issues/1823
+  ];
+
   src = fetchPypi {
     inherit pname version;
     hash = "sha256-FWZ6kYeA152nVeamC79pGAUYVJUej1bM31aSKD6ahHk=";
@@ -50,6 +54,7 @@ buildPythonPackage rec {
   ];
 
   pythonRelaxDeps = [
+    "platformdirs"
   ];
 
   propagatedBuildInputs = [

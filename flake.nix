@@ -31,8 +31,6 @@
           build
           pytest
           mypy
-          flake8
-          black
           myPkgs.sfconn
           myPkgs.snowpark
         ];
